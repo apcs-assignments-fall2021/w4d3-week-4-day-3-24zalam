@@ -7,7 +7,14 @@ public class MyMain {
     //     4
     //     2
     public static void printEvensBackwards(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
+      int[] newarr=new int[arr.length];
+      int index=0;
+      for(int i=0; i<=arr.length; i--) {
+          if(arr[i]%2==0); {
+              System.out.print(arr[i]);
+              index+=1;
+          }
+      }
         return;
     }
 
@@ -18,8 +25,12 @@ public class MyMain {
     //     isIncreasing([1, 1, 3, 6, 7]) => false (because 1 is not > 1)
     //     isIncreasing([1, 2, 3, 2, 4, 5, 8]) => false
     public static boolean isIncreasing(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return false;
+       for(int i=0; i<arr.length-1; i++) {
+           if (arr[1] >= arr[i + 1]) {
+               return false;
+           }
+       }
+        return true;
     }
 
     // (Maybe Optional):
@@ -39,7 +50,15 @@ public class MyMain {
     // Ex: containsDuplicates([1, 2, 3, 2, 1]) => true
     //     containsDuplicates([7, 2, 3, 4, 1, 5]) => false
     public static boolean containsDuplicates(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
+        for(int i=0;i<arr.length;i++) {
+            for(int y=i+1; y<arr.length; y++) {
+            if(arr[i]==arr[y]) {
+
+                return true;
+            }
+            }
+        }
+
         return false;
     }
 
@@ -48,11 +67,16 @@ public class MyMain {
     // to sort our code
     // This algorithm returns the sorted array
     public static int[] bubbleSort(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
+        for (int i = 0; i < arr.length; i++) {
+            //for (int y = i + 1; y < arr.length; y++) {
+            if (arr[i] >= arr[i + 1]) {
+                int temp = arr[i];
+                arr[i + 1] = temp;
+
+            }
+        }
         return arr;
     }
-
-
     public static void main(String[] args) {
         System.out.println("printEvensBackwards Tests:");
         printEvensBackwards(new int[] {1, 2, 3, 4, 5, 6});
